@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+        <style>
+            html{
+                font-size: 50px;;
+            }
+            #mydiv{
+                border: 4px solid blue;
+                padding: 10px;
+                margin: 10px;
+                font-size: 50px;
+                width: 10rem;
+            }
+            #mydivone{
+                border: 4px solid green;
+                padding: 10px;
+                margin: 10px;
+                font-size: 20px;
+                width: 10rem;
+            }
+            #mydivtwo{
+                border: 4px solid cyan;
+                padding: 10px;
+                margin: 10px;
+                /* font-size: 50px; */
+                width: 10rem; 
+                /* em follows em*font-size given */
+                /* rem doesn't follow any font-size */
+            }
+            body{
+                border: 4px solid gray;
+                padding: 10px;
+                margin: 10px;
+                /* font-size: 50px;
+                width: 10em; */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="mydiv">Hi I'm with size 10em</div>
+        <div id="mydivone">Hi I'm with size 10em</div>
+        <div id="mydivtwo">Hi I'm with size 10em</div>
+    </body>
+</html>

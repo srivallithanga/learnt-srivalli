@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        <input type="text" name="student"/>
+        <button onclick="addStudent()">store student</button>
+        <button onclick="showStudent()">show student</button>
+        <button onclick="removeAll()">Remove students</button>
+    </body>
+        <script>
+            let students=[];
+            function addStudent(){
+                let inputOb=document.querySelector("input");
+                let studentName=inputOb.value;
+                students.push(studentName);
+                let studentJson=JSON.stringify(students);
+                localStorage.setItem("student",studentJson);
+                alert("stored");
+            }
+            function showStudent(){
+                let show=JSON.parse(localStorage.getItem("student"));
+                alert(show);
+            }
+
+            function removeAll(){
+                localStorage.removeItem("student");
+            }
+        </script>
+</html>

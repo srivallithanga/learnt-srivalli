@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        function Hero(name,planet){
+            this.name=name;
+            this.planet=planet;
+            this.sayName=function(){
+                alert(this.name);
+            }
+
+            //private property
+            let password="haha";
+            function privateFunction(){
+                alert("I am a private function");
+            }
+            this.showPassword=function(){
+                alert(password);
+            }
+            this.runPrivateFunction=function(){
+                privateFunction();
+            }
+        }
+
+        //creating obj of type Hero
+        let returnValue=Hero("Spider Man","Earth");
+        alert(returnValue);
+        var objOne=new Hero("Spider Man","Earth");
+        alert(objOne.password);
+        objOne.showPassword();
+        objOne.runPrivateFunction();
+        var objTwo=new Hero("Iron Man","Earth");
+        objOne.sayName();
+        objTwo.sayName();
+    </script>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        function multiply(a, b, c) {
+            return a * b * c;
+        }
+        let res = multiply(1, 2, 3);
+        console.log(res);
+
+        function multiply_curried(a) {
+            return function (b) {
+                return function (c) {
+                    return a * b * c
+                }
+            }
+        }
+        let mc1 = multiply_curried(1);
+        let mc2 = mc1(2);
+        let res2 = mc2(3);
+        console.log(res2);
+
+        let res3 = multiply_curried(1)(2)(3);
+        console.log(res3);
+
+        // function sayName() {
+        //     console.log(this.name) //undefined
+        // }
+        // sayName()
+
+        //call() method
+        let human={name:'JC'};
+        function sayName() {
+            console.log(this.name)
+        }
+        sayName.call(human); 
+
+        //supply arguments to call method
+        let human1 = {name:'JC'};
+        function sayName1(greeting) {
+            console.log(greeting + ' ' + this.name);
+        }
+        sayName1.call(human1,'Hi!');
+
+
+        //apply method
+        let human2 ={name:'JC'};
+        function sayName2(greeting,city) {
+            console.log(greeting + ' ' + this.name + ' from ' + city);
+        }
+        sayName2.apply(human2,['Hi','Taguig']);
+
+        //bind method
+        let human3 = {name:'JC'};
+        function sayName3(greeting,city) {
+            console.log(greeting + ' ' + this.name + ' from ' + city)
+        }
+        let greet = sayName3.bind(human)
+        greet('Hi!','Taguig')
+        greet('Hello!','Makati')
+
+        var func = function() {
+            console.log(this)
+        }.bind(1);
+        func();
+
+        // var func = function() {
+        //     console.log(this)
+        // }.bind(1);
+        // var obj = {
+        //     callFun : func
+        // }
+        // obj.callFun.func();
+
+        function checkFun(a, b, c){
+            console.log(this);
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        checkFun.call(1,2,3,4);
+
+        function checkFun1(a, b, c){
+            console.log(this);
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        checkFun1.apply(1,[2,3,4]); //this and above gives same output
+
+    </script>
+</html>

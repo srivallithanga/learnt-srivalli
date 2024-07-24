@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        <button id="clicker">Click</button>
+    </body>
+    <script>
+        //taking functions as arguments
+        document.getElementById("clicker").addEventListener("click",function(){
+            alert("You triggered " +this.id);
+        });
+
+        var proveIt=function(){
+            alert("you triggred "+this.id);
+        }
+        document.getElementById("clicker").addEventListener("click",proveIt);
+
+        //returning functions as results
+        var snakify=function(text){
+            return text.replace(/millenials/ig, "Snake people");
+        };
+        console.log(snakify("The Millenials are always up to something"));
+    </script>
+</html>

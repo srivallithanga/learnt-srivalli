@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Responsive example</title>
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			.clearfix:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			div,
+			p,
+			body,
+			header,
+			nav,main {
+				border: 4px solid blue;
+				padding: 10px;
+				margin: 10px;
+				border-radius: 10px;
+			}
+			p {
+				border-color: green;
+			}
+			header {
+				border-color: grey;
+			}
+			nav {
+				border-color: magenta;
+				font-size: 30px;
+				text-align: center;
+			}
+			main {
+				width:70%;
+				border-color: grey;
+			}
+			body {
+				border-color: black;
+			}
+			#sidebar {
+				float: left;
+				width:25%;
+			}
+			main {
+				float: right;
+				width: 70%;
+			}
+            @media(max-width: 580px){
+                main,#sidebar{
+                    float: none;
+                    border-color: red;
+                    width: 100%;
+                }
+            }
+            @media(min-width: 581px) and (max-width: 768px){
+                main,#sidebar{
+                    float: none;
+                    border-color: darkmagenta;
+                    width: 100%;
+                }
+            }
+		</style>
+	</head>
+	<body class="clearfix">
+		<header>
+			<nav>
+				<a href="#">Home</a>
+				<a href="#">About</a>
+				<a href="#">Contact</a>
+			</nav>
+		</header>
+		<div id="sidebar">
+			<p>I am sidebar</p>
+			<p>I am sidebar</p>
+			<p>I am sidebar</p>
+		</div>
+		<main>
+			<h1>Heading</h1>
+			<div>
+				<p>i am main content</p>
+			</div>
+		</main>
+	</body>
+</html>

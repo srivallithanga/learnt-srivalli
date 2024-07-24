@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>JavaScript String</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        const a='hello';
+        //two ways of accessing the characters in a string
+        console.log(a.charAt(1));
+        console.log(a[1]);
+        console.log(a[a.length-1]); //to access the last character
+
+        let b="Hello";
+        b[0]="h";
+        console.log(b); //immutable
+
+        console.log(a===b); //case-sensitive
+
+        //multiline string
+        const msg1='This is a long message '+
+        'that spans across multiple lines '+
+        'in the code'
+
+        const msg2='This is a long message \
+        that spans across multiple lines \
+        in the code'
+        console.log(msg1);
+        console.log(msg2);
+
+        //string length
+        console.log(a.length);
+
+        //string objects
+        const obj=new String('hello');
+        console.log(typeof(obj));
+
+        //Javascript string function
+        const num=12;
+        const bool=true;
+        const res1=String(num);
+        const res2=String(bool);
+        console.log(res1); //output is 12 but the typeof is string
+        console.log(res2);//output is true but the typeof is string
+
+        const name='My name is \'Sri\'.'; //backslash is used to include special characters in a string
+        console.log(name);
+
+
+        //concat strings via +
+        const str='Valli';
+        const str1='Sri' + str;
+        console.log(str1);
+
+        //assembling a string piece by piece
+        let className='btn ';
+        className+='btn-primary '
+        className+='none '
+        className+='yes';
+        console.log(className);
+
+        //comparing strings
+        let result='a'<'b';
+        console.log(result);
+        let result1='a'<'B';
+        console.log(result1);
+
+        let status=false;
+        let strr=status.toString();
+        console.log(strr);
+        let back=Boolean(strr);
+        console.log(back);
+
+        let res5="h\'ello world";
+        console.log(res5);
+
+    </script>
+</html>

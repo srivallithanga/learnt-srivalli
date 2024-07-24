@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        <input type="text" name="training_location"/>
+        <button onclick="storetraininglocation()">store training location</button>
+        <button onclick="showtraininglocation()">show training location</button>
+    </body>
+        <script>
+            function storetraininglocation(){
+                let inputOb=document.querySelector("input");
+                let traininglocation=inputOb.value;
+                localStorage.setItem("training_location",traininglocation);
+                alert("stored");
+            }
+            function showtraininglocation(){
+                let showtraining=localStorage.getItem("training_location");
+                alert(showtraining)
+            }
+        </script>
+</html>

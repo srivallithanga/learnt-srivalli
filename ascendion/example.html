@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Deprecated tags</title>
+  <!-- <link rel="stylesheet" href="style.css"> -->
+<style>
+    #menu{
+  border:5px solid grey;
+  padding: 10px;
+}
+
+#menu a{
+  border:2px solid black;
+  padding: 3px;
+  text-decoration: none;
+}
+
+#news{
+  margin-bottom: 50px;
+}
+
+#foot{
+  padding: 10px;
+}
+
+#foot a{
+  padding: 3px;
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div id="menu">
+        <a href="home.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contactus.html">Contact Us</a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section id="news">
+      <header>
+        <h2>Top News</h2>
+      </header>
+      <article>
+        <h1> Heavy Rains</h1>
+        <div>
+          Heavy rains in Bangalore.
+        </div>
+        <figure>
+          <img src="" alt="rains"/>
+          <figcaption>Heavy Rains</figcaption>
+        </figure>
+      </article>
+      <article id="job-div">
+        <h1>Job Openings in Bangalore</h1>
+        <div>
+          Economy is opening so Bangalore is getting many poeple moving back.
+          <footer>Author: Srivalli</footer>
+        </div>
+      </article>
+    </section>
+    <form action="submit.html" method="post">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required> <br><br>
+        <label for="url">URL:</label>
+        <input type="url" id="url" name="url" required> <br><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required> <br><br>
+        <label for="month">Month:</label>
+        <input type="month" id="month" name="month"> <br><br>
+        <label for="week">Week:</label>
+        <input type="week" id="week" name="week"> <br><br>
+        <label for="time">Time:</label>
+        <input type="time" id="time" name="time"> <br><br>
+        <label for="datetime">DateTime:</label>
+        <input type="datetime" id="datetime" name="datetime"> <br><br>
+        <label for="color">Color:</label>
+        <input type="color" id="color" name="color"> <br><br>
+        <label for="tel">Tele:</label>
+        <input type="tel" id="tel" name="tel"> <br><br>
+        <label for="number">Number:</label>
+        <input type="number" id="number" name="number"> <br><br>
+        <label for="range">Range:</label>
+        <input type="range" min="40" max="100" id="range" name="range"> <br><br>
+        <label for="search">Search:</label>
+        <input type="search" id="search" name="search"> <br><br>
+        <label>  
+            Hobbies:
+            <input type="text" id="hobby" list="hobbies">  
+            <datalist id="hobbies">  
+              <option value="Cricket">  
+              <option value="Music">  
+              <option value="Dance">     
+            </datalist>  
+        </label>  <br><br>
+        <label for="progress">Progress:</label>
+        <progress id="progress" value="50" max="100">50%</progress><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <footer>
+      <header>Footer Information</header>
+      <nav>
+        <div id="foot">
+            <a href="policy.html">Policy</a>
+            <a href="privacy.html">Privacy</a>
+        </div>
+      </nav>
+    </footer>
+  </main>
+</body>
+<script>
+let num1=1;
+let num2=2;
+function showHobby(){
+alert(num1+num2);
+}
+showHobby();
+let a=null;
+let b;
+alert(typeof(a));
+alert(b);
+let datatypes=["name",1,false,null];
+alert(datatypes[0]);
+alert(datatypes[1]);
+alert(datatypes[2]);
+alert(datatypes[3]);
+alert(typeof(datatypes[0]));
+alert(typeof(datatypes[1]));
+alert(typeof(datatypes[2]));
+alert(typeof(datatypes[3]));
+let studentobj=new Object;
+studentobj.name="a";
+studentobj.age=1;
+studentobj.secret=function(){
+  alert("Hello");
+}
+alert(studentobj.name);
+studentobj.secret();
+
+let articleObj=document.getElementById("job-div");
+articleObj.style.color="red";
+articleObj.style.border="4px solid green";
+articleObj.style.padding="10px";
+articleObj.onclick=function()
+{
+  alert("Hello");
+}
+</script>
+</html>

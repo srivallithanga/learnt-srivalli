@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Responsive example</title>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div id="container">Click here</div>
+        <button onclick="removeEvent()">Remove Event</button>
+	</body>
+    <script>
+        // let ref=document.getElementById('container');
+        // ref.addEventListener("dblclick",showMsgOne);
+        // ref.addEventListener("dblclick",showMsgTwo);
+        // function showMsgOne(){
+        //     alert("this is msg one")
+        // }
+        // function showMsgTwo(){
+        //     alert("this is msg two");
+        // }
+        // function removeEvent(){
+        //     ref.removeEventListener("dblclick",showMsgOne);
+        // }
+
+        var sum=new Function('a','b','return a+b');
+        console.log(sum(1,2));
+
+        function invokeSum(a,b){
+            return a() + b();
+        }
+        function returnOne(){
+            return 1;
+        }
+        function returnTwo(){
+            return 2;
+        }
+        alert(invokeSum(returnOne,returnTwo));
+
+        (
+            function(name,location){
+                alert('Hey u' +name+ 'called me without invoking' +location);
+            }
+        )('sri','Bangalore');
+
+        function outer(param){
+            function innerFunc(value){
+                return value*4;
+            }
+            return 'The result is' +innerFunc(param);
+        }
+        console.log(outer(2));
+
+        function test(){
+            alert('inside test');
+            return function(){
+                alert('inside returned function');
+            };
+        }
+        var newFunc = test();
+        newFunc();
+
+        function init() {
+    var name = "Mozilla"; // name is a local variable created by init
+    function displayName() { // displayName() is the inner function, a closure
+        console.log(name); // displayName() uses variable declared in the parent function    
+    }
+    displayName();    
+}
+init();
+
+function outerFunc(param){
+    var privateVar=5;
+    var innerFunc=function(input){
+        alert('param passed to function is' +param+ 'and private variable is' +privateVar);
+        var sum=privateVar+input+param;
+        alert('addition of private var and input and param is' +sum);
+    }
+    return innerFunc;
+}
+var closureFunc=outerFunc(12);
+closureFunc(4);
+    </script>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        <script>
+            function greatest(){
+                let great=arguments[0];
+                let len=arguments.length;
+                for(let i=0;i<len;i++){
+                    if(arguments[i]>great){
+                    great=arguments[i];
+                    }  
+                }
+            return great;
+            }
+            console.log(greatest(1,2,3));
+
+
+            function sum(){
+                let add=0;
+                let len=arguments.length;
+                for(let i=0;i<len;i++){
+                    if(arguments[i]%2==0){
+                        add+=arguments[i];
+                    }
+                }
+                return add;
+            }
+            console.log(sum(1,2));
+        </script>
+</html>

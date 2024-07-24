@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        function Gods(age,strength){
+            this.age=age;
+            this.strength=strength;
+            this.displayStrength=function(){
+                alert(`The strength is ${this.strength}`);
+            }
+        }
+        let someGod=new Gods("Huge","Extremely high");
+
+        function Hero(name,planet){
+            this.name=name;
+            this.planet=planet;
+            this.sayName=function(){
+                alert(this.name);
+            }
+        }
+
+        Hero.prototype=someGod;
+        //resetting the constructor
+        Hero.prototype.constructor=Hero;
+        let supermanOb=new Hero("Super Man","Krypton");
+        supermanOb.displayStrength();
+        alert(supermanOb.age);
+        alert(supermanOb.name);
+        console.log(supermanOb);
+        console.log(supermanOb.constructor);
+
+        // console.log(typeof(Gods.prototype));
+    </script>
+</html>

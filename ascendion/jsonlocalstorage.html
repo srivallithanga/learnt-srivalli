@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        <input type="text" name="student"/>
+        <input class="native" type="text" name="native"/>
+        <input class="ages" type="number" name="age"/>
+        <button onclick="addStudent()">store student</button>
+        <button onclick="printStudent()">print student</button>
+    </body>
+        <script>
+            let students=new Object();
+            function addStudent(){
+                let inputOb=document.querySelector("input");
+                let studentName=inputOb.value;
+                students['name']=studentName;
+                let inputOb1=document.querySelector(".native");
+                let studentNative=inputOb1.value;
+                students['native']=studentNative;
+                let inputOb2=document.querySelector(".ages");
+                let studentAge=inputOb2.value;
+                students['age']=studentAge;
+                let studentObj={};
+                studentObj['studentdetails']=students;
+                let studentJson=JSON.stringify(studentObj);
+                localStorage.setItem("student",studentJson);
+                alert("stored");
+            }
+
+            function printStudent(){
+                let show=JSON.parse(localStorage.getItem("student"));
+                // alert(show);
+                for(let index in show){
+                alert(show[index]);
+            }
+            }
+            
+        </script>
+</html>

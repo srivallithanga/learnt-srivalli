@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        <script>
+            const favDish=["Pizza", "Burger", "Butter Naan"];
+            favDish.push("Biriyani");
+            const studentObj={
+                name:"Sri",
+                favdish:"Dosa"
+            }
+            studentObj.native="Kadapa";
+            const studentName="Krishna";
+            alert(`studentName=${studentName}`);
+            {
+                const studentName="Harsh";
+                alert(`studentName inside curly braces=${studentName}`);
+                {
+                    alert(studentName);
+                    {
+                        const studentName="Khushal";
+                        alert(studentName);
+                    }
+                    alert(studentName);
+                }
+            }
+            alert(`studentName at the end=${studentName}`);
+        </script>
+</html>

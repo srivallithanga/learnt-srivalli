@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        let introduction = ["Hello","I","am","Sri"];
+        let [greeting,pronoun,verb] = introduction;
+        console.log(greeting);
+        console.log(pronoun);
+        console.log(verb);
+
+        //and also
+        let [greet,noun] = ["Hello","I","am","Sri"];
+        console.log(greet);
+        console.log(noun);
+
+        //Declaring Variables before Assignment
+        let greet1,pronoun1;
+        [greet1,pronoun1] = ["Hello","I","am","Sri"];
+        console.log(greet1);
+        console.log(pronoun1);
+
+        //skipping items in an array
+        let [greet2,,,name2] = ["Hello","I","am","Sri"];
+        console.log(greet2);
+        console.log(name2);
+
+        //assigning the rest of the array
+        let [greet3,...remain] = ["Hello","I","am","Sri"];
+        console.log(greet3);
+        console.log(remain);
+
+        //destructing with functions
+        function getArray() {
+            return ["Hello","I","am","Sri"];
+        }
+        let [greet4,pronoun4]=getArray();
+        console.log(greet4);
+        console.log(pronoun4);
+
+        //using default values
+        let [greet5="hi",name5 ="Sri"]=["hello"];
+        console.log(greet5);
+        console.log(name5);
+
+        //swapping variables
+        let a=3;
+        let b=6;
+        [a,b]=[b,a];
+        console.log(a);
+        console.log(b);
+
+        //obj destructuring
+        let person ={name:"Sri",country:"Bangalore",job:"Developer"};
+        let name =person.name;
+        let country=person.country;
+        let job=person.job;
+        console.log(name);
+        console.log(country);
+        console.log(job);
+
+
+        let person1={names:"Sri",country1:"Bangalore",job1:"Developer"};
+        let names,country1,job1;
+        ({names,country1,job1} = person1); //without ( ) we get error
+        console.log(names);
+        console.log(country1);
+        console.log(job1);
+
+        //using a new variable names
+        let person2={names1:"Sri",country2:"Bangalore",job2:"Developer"};
+        let {names1:foo,job2:bar} =person2;
+        console.log(foo);
+        console.log(bar);
+    </script>
+</html>

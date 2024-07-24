@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>foreach method</title>
+    </head>
+    <body>
+        <script>
+            let cars=[
+                {
+                    color:"red",
+                    type:"minivan",
+                    capacity:7
+                },
+                {
+                    color:"blue",
+                    type:"minivan",
+                    capacity:7
+                },
+                {
+                    color:"red",
+                    type:"wagon",
+                    capacity:5
+                },
+                {
+                    color:"purple",
+                    type:"cabrio",
+                    capacity:2
+                },
+                {
+                    color:"blue",
+                    type:"wagon",
+                    capacity:5
+                }
+            ]
+            console.log(cars);
+
+            //add an object at first position
+            let car={
+                color:"blue",
+                    type:"wagon",
+                    capacity:5
+            }
+            cars.unshift(car);
+            console.log(cars);
+
+            //add an object at the end
+            let car1={
+                color:"blue",
+                    type:"wagon",
+                    capacity:5
+            }
+            cars.push(car1);
+            console.log(cars);
+
+            //add an object at specific position
+            let car2={
+                color:"blue",
+                    type:"wagon",
+                    capacity:5
+            }
+            cars.splice(3,0,car2);//splice(index where to start, how many items to remove, items to add)
+            console.log(cars);
+
+            //looping an array of objects
+            let searchcar=cars.find(searchcar=>searchcar.color==="red");
+            console.log(searchcar);
+
+            let searchcars=cars.filter(searchcar=>searchcar.color==="red");//multiple items match
+            console.log(searchcars);
+        </script>
+</html>

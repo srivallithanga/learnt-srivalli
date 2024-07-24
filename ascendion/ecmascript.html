@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        class Student{
+            name;
+            age;
+            hobbies;
+            #password;
+            constructor(name,age,hobbies,password){
+                this.name=name;
+                this.age=age;
+                this.hobbies=hobbies;
+                this.#password=password;
+            }
+            showAge(){
+                alert(`The age of ${this.name} is ${this.age}`);
+            }
+            showPassword(){
+                alert(`the private property password is ${this.#password}`);
+            }
+        }
+
+        let studentObj= new Student("Sri",22,["reading","travelling"],"abc123");
+        studentObj.showAge();
+        console.log(studentObj);
+        studentObj.showPassword();
+
+        class FullStackStudent extends Student{
+            expertise;
+            jobProbality;
+            constructor(name,age,hobbies,password,expertise,jobProbality){
+                super(name,age,hobbies,password);
+                this.expertise=expertise;
+                this.jobProbality=jobProbality;
+            }
+            showProbality(){
+                alert(`the job probality of ${this.name} is ${this.jobProbality}`);
+            }
+        }
+        let fullstackObj=new FullStackStudent("Srivalli",22,["reading","travelling"],"abc123","Full stack developer",85);
+        fullstackObj.showAge();
+        fullstackObj.showPassword();
+        fullstackObj.showProbality();
+    </script>
+</html>

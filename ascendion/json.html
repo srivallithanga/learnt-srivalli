@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+       
+    </body>
+        <script>
+            let students=["chandni","harsh","revanth"];
+            console.log(typeof(students));
+            let studentJson=JSON.stringify(students);//converts array to string
+            console.log(studentJson);
+            console.log(typeof(studentJson));
+
+            let converted=JSON.parse(studentJson);//converts string to array
+            console.log(typeof(converted));
+
+            let manualenter='["chandni","harsh","revanth"]';
+            console.log(typeof(manualenter));
+            let convertedone=JSON.parse(manualenter);
+            console.log(typeof(convertedone));
+        </script>
+</html>

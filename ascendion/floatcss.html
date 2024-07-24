@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+        <style>
+            #one,#two,#three,main{
+                border: 4px solid blue;
+                padding: 10px;
+                margin: 5px;
+            }
+            main{
+                border-color: green;
+            }
+            #one{
+                float: left;
+                width: 29%;
+            }
+            #two{
+                float: left;
+                width: 29%;
+            }
+            #three{
+                float: right;
+                width: 32%;
+            }
+            .clearfix::after {
+                content: "";
+                clear: both;
+                display: table;
+            }
+        </style>
+    </head>
+    <body>
+        <main class="clearfix">
+            <div id="one">Div one</div>
+            <div id="two">Div two</div>
+            <div id="three">Div three</div>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        'use strict';
+
+        myvariable=8; //without use strict myvariable works as a global variable in js..but as we used use strict it throws an error as not defined
+        
+        function show(){
+            str="hello"; //throws an error
+        }
+        show();
+
+        person={name:'Sri',age:21}; //error
+        
+        let fruits={name:'Apple',color:'red'};
+        delete fruits; //error
+
+        //duplicate parameters aren't allowed
+        function hello(p1,p1){
+            console.log('hello')
+        };
+        hello();
+
+        //octal syntax isn't allowed
+        let a=0110;
+        console.log(a);
+
+        //the variable name arguments and eval are not allowed
+        let arguments="hello";
+        let eval=44;
+
+
+        //closures
+        function init() {
+    var name = "Mozilla"; // name is a local variable created by init
+    function displayName() { // displayName() is the inner function, a closure
+        console.log(name); // displayName() uses variable declared in the parent function    
+    }
+    displayName();    
+}
+const var1=init();
+console.log(init);
+console.log(init());
+    </script>
+</html>

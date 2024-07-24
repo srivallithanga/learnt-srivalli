@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        //object literal
+        let obj={
+            name:"Sri",
+            location:"Bangalore"
+        }
+
+        //you can inherit from an object with this new obj creation method
+        let studentObj=Object.create(obj);
+        studentObj.course="Full Stack";
+        studentObj.showCompany=function(){
+            alert("Its Ascendion");
+        }
+        alert(studentObj.location);
+        studentObj.showCompany();
+    </script>
+</html>
