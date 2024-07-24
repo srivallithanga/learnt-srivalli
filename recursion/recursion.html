@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Multiple Arguments</title>
+    </head>
+    <body>
+        
+    </body>
+    <script>
+        function log(n){
+            if(n>5){
+                return;
+            }
+            console.log(n);
+            log(n+1);
+        }
+        log(1);
+
+        function randomNum(res=0,count=0){
+            if(res===5){
+                console.log(`The ran num: ${res}`);
+                console.log(`How many times ran is executed: ${count}`);
+                return;
+            }
+            res=Math.floor(Math.random()*(10-1+1)+1);
+            count++;
+            randomNum(res,count);
+        }
+        randomNum();
+    </script>
+</html>
