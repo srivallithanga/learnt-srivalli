@@ -1,0 +1,15 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+}
+
+.logout-container {
+  display: flex;
+  justify-content: flex-end; 
+  padding: 16px;
+}
+
+.logout-message {
+  margin-top: 16px;
+}
