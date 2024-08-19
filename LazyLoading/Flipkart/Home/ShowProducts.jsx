@@ -3,23 +3,23 @@ import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import moment from 'moment-timezone';
 import DataTable from 'react-data-table-component';
-import { Button, Typography, Container, Paper, Box, TextField } from '@mui/material';
+import { Button, Typography, Container, Paper, Box, TextField, MenuItem, Select, InputLabel, FormControl } from '@mui/material';
 import { Delete as DeleteIcon } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976d2', 
+      main: '#1976d2',
     },
     secondary: {
-      main: '#dc004e', 
+      main: '#dc004e',
     },
     background: {
-      default: '#f5f5f5', 
+      default: '#f5f5f5',
     },
     text: {
-      primary: '#333', 
+      primary: '#333',
     },
   },
   components: {
@@ -44,6 +44,8 @@ const theme = createTheme({
 function ShowProducts() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState('');
+  const [priceFilter, setPriceFilter] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
   const [selectedRows, setSelectedRows] = useState([]);
   const navigate = useNavigate();
   const { id } = useParams();
@@ -108,6 +110,8 @@ function ShowProducts() {
 
   const columns = [
     { name: 'Name', selector: row => row.name, sortable: true },
+    { name: 'Category', selector: row => row.category.name, sortable: true },
+    { name: 'Excerpt', selector: row => row.excerpt, sortable: true },
     { name: 'Price', selector: row => row.price, sortable: true },
   ];
 
@@ -119,9 +123,36 @@ function ShowProducts() {
     setSearch(event.target.value);
   };
 
-  const filteredData = data.filter(product =>
-    product.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const handlePriceFilterChange = (event) => {
+    setPriceFilter(event.target.value);
+  };
+
+  const handleCategoryFilterChange = (event) => {
+    setCategoryFilter(event.target.value);
+  };
+
+  const filterByPriceRange = (product) => {
+    switch (priceFilter) {
+      case 'below_100':
+        return product.price < 100;
+      case '100_200':
+        return product.price >= 100 && product.price < 200;
+      case '200_300':
+        return product.price >= 200 && product.price < 300;
+      case 'above_300':
+        return product.price >= 300;
+      default:
+        return true;
+    }
+  };
+
+  const filteredData = data
+    .filter(product =>
+      (product.name.toLowerCase().includes(search.toLowerCase()) ||
+        product.excerpt.toLowerCase().includes(search.toLowerCase())) &&
+      filterByPriceRange(product) &&
+      (categoryFilter === '' || product.category.name === categoryFilter)
+    );
 
   return (
     <ThemeProvider theme={theme}>
@@ -130,25 +161,57 @@ function ShowProducts() {
           Display All Products
         </Typography>
         <Paper>
-          <Box display="flex" flexDirection="column" gap={2}>
+          <Box display="flex" justifyContent="flex-end" gap={2} mb={2}>
             <TextField
-              label="Search"
+              label="Search by Name or Excerpt"
               variant="outlined"
-              fullWidth
               onChange={handleSearch}
               value={search}
+              sx={{ width: 200 }}
             />
-            <Box>
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={bulkDelete}
-                startIcon={<DeleteIcon />}
-                disabled={selectedRows.length === 0}
+            <FormControl variant="outlined" sx={{ width: 200 }}>
+              <InputLabel>Filter by Price</InputLabel>
+              <Select
+                label="Filter by Price"
+                value={priceFilter}
+                onChange={handlePriceFilterChange}
               >
-                Delete Selected
-              </Button>
-            </Box>
+                <MenuItem value="">All Prices</MenuItem>
+                <MenuItem value="below_100">Below 100</MenuItem>
+                <MenuItem value="100_200">100-200</MenuItem>
+                <MenuItem value="200_300">200-300</MenuItem>
+                <MenuItem value="above_300">Above 300</MenuItem>
+              </Select>
+            </FormControl>
+            <FormControl variant="outlined" sx={{ width: 200 }}>
+              <InputLabel>Filter by Category</InputLabel>
+              <Select
+                label="Filter by Category"
+                value={categoryFilter}
+                onChange={handleCategoryFilterChange}
+              >
+                <MenuItem value="">All Categories</MenuItem>
+                {data
+                  .map(product => product.category.name)
+                  .filter((value, index, self) => self.indexOf(value) === index)
+                  .map(category => (
+                    <MenuItem key={category} value={category}>
+                      {category}
+                    </MenuItem>
+                  ))}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={bulkDelete}
+              startIcon={<DeleteIcon />}
+              disabled={selectedRows.length === 0}
+            >
+              Delete Selected
+            </Button>
           </Box>
         </Paper>
         <Paper>
@@ -156,8 +219,8 @@ function ShowProducts() {
             columns={columns}
             data={filteredData}
             pagination
-            paginationPerPage={5}  // Set default rows per page
-            paginationRowsPerPageOptions={[3, 5, 10]}  // Options for rows per page
+            paginationPerPage={5}
+            paginationRowsPerPageOptions={[3, 5, 10]}
             selectableRows
             selectableRowsComponentProps={{ color: 'primary' }}
             onSelectedRowsChange={handleRowSelected}
