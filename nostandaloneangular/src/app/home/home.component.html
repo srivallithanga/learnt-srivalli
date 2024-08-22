@@ -1,0 +1,17 @@
+<div class="course-grid">
+    <div *ngFor="let course of courses" class="course-box">
+        <h2>{{ course.name }}</h2>
+        <img [src]="course.image" alt="{{ course.name }}" class="course-image" />
+        <p><strong>Description:</strong> <span [innerHTML]="course.description"></span></p>
+        <p><strong>Category:</strong> {{ course.category_name }}</p>
+        <p><strong>Price:</strong> {{ course.price | currency }}</p>
+        <p><strong>Credit Cost:</strong> {{ course.credit_cost }}</p>
+        <p><strong>Instructor ID:</strong> {{ course.instructor }}</p>
+        <p><strong>Active:</strong> {{ course.active ? 'Yes' : 'No' }}</p>
+        <p><strong>Finished:</strong> {{ course.finished ? 'Yes' : 'No' }}</p>
+        <p><strong>Created At:</strong> {{ course.created_at | date:'long' }}</p>
+        <p><strong>Updated At:</strong> {{ course.updated_at | date:'long' }}</p>
+    </div>
+    
+    
+</div>
