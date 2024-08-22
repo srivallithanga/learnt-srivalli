@@ -1,0 +1,15 @@
+<div class="hello-world">hello-world works!
+    <h3 *ngIf="showMsg">{{msg}}</h3>
+    <button (click)="sayHello()">Say hello</button>
+    <button (click)="toggleShowMsg()">Show/Hide Heading</button>
+
+    <ul>
+        @for(student of students; track $index){
+            <li>{{$index}}.{{student}}</li>
+        }
+    </ul>
+
+    <ul>
+        <li *ngFor="let student of students; index as i">{{i}}.{{student}}</li>
+    </ul>
+</div>

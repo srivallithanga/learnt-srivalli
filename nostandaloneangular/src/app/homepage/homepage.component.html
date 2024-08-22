@@ -1,0 +1,36 @@
+<div class="product-list">
+  <h1>Product List</h1>
+  <div class="product-cards-container">
+    <div *ngFor="let product of products" class="product-card">
+      <h2>{{ product.name }}</h2>
+      <div class="field-item">
+        <span class="field-label">Code:</span>
+        <span class="field-value">{{ product.code }}</span>
+      </div>
+      <div class="field-item">
+        <span class="field-label">Excerpt:</span>
+        <span class="field-value">{{ product.excerpt }}</span>
+      </div>
+      <div class="field-item">
+        <span class="field-label">Description:</span>
+        <span class="field-value">{{ product.description }}</span>
+      </div>
+      <div class="field-item">
+        <span class="field-label">Price:</span>
+        <span class="field-value">{{ product.price | currency }}</span>
+      </div>
+      <div class="field-item">
+        <span class="field-label">Category:</span>
+        <span class="field-value">{{ product.category.name }}</span>
+      </div>
+      <div class="field-item">
+        <span class="field-label">Status:</span>
+        <span class="field-value">{{ product.status ? 'Active' : 'Inactive' }}</span>
+      </div>
+      <div class="field-item">
+        <span class="field-label">Created At:</span>
+        <span class="field-value">{{ product.created_at | date:'short' }}</span>
+      </div>
+    </div>
+  </div>
+</div>

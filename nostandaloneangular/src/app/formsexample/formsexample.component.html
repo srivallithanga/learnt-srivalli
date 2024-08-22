@@ -1,0 +1,11 @@
+<form #myform="ngForm" (ngSubmit)="onSubmit(myform)">
+    <input type="text" name="username" placeholder="Enter username" ngModel required/>
+    <input type="text" name="email" placeholder="Enter email" ngModel required/>
+    <button type="submit">Submit</button>
+</form>
+<h3>{{myform.value.username}}</h3>
+<h3>{{myform.value.email}}</h3>
+<div>
+    Username: {{username}}<br/>
+    Email: {{email}}
+</div>
